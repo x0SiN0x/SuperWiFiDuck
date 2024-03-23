@@ -39,7 +39,7 @@ Video Demo:
   - [How to Debug](#how-to-debug)
   - [Development](#development)
     - [Edit Web Files](#edit-web-files)
-    - [Change Keyboad Identifier](#change-keyboad-identifier)
+    - [Change Keyboard Identifier](#change-keyboard-identifier)
     - [Translate Keyboard Layout](#translate-keyboard-layout)
   - [Disclaimer](#disclaimer)
   - [License](#license)
@@ -240,7 +240,7 @@ and saves it in `esp_duck/webfiles.h`.
 Now you just need to [flash](#flash-software) the ESP8266 again.  
 
 
-### Change Keyboad Identifier
+### Change Keyboard Identifier
 
 The default VendorID/ProductID is Expressif Systems. 
 To emulate a different brand of keyboard, modify the build parameters in `platform.ini`
