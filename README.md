@@ -253,12 +253,14 @@ To emulate an Apple Keyboard
     -D USB_VID=0x05ac
     -D USB_PID=0x0267
     -D USB_MANUFACTURER='"Apple Inc."'
+    -D USB_PRODUCT='"Apple Magic Keyboard"'
 ```
 To emulate an IBM Keyboard
 ```bash
     -D USB_VID=0x04b3
     -D USB_PID=0x4604
     -D USB_MANUFACTURER='"IBM Corp."'
+    -D USB_PRODUCT='"IBM Keyboard"'
 ```
 
 Additional VendorID/ProductIDs available on [devicehunt.com](https://devicehunt.com/view/type/usb/vendor/046D)
