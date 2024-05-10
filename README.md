@@ -39,10 +39,12 @@ Video Demo:
   - [How to Debug](#how-to-debug)
   - [Development](#development)
     - [Edit Web Files](#edit-web-files)
+    - [Change Keyboard Identifier](#change-keyboard-identifier)
     - [Translate Keyboard Layout](#translate-keyboard-layout)
   - [Disclaimer](#disclaimer)
   - [License](#license)
   - [Credits](#credits)
+  - [Support original wifiduck](#support-original-wifiduck)
 
 ## About
 
@@ -236,6 +238,30 @@ repository folder.
 It gzips all files inside `web/`, converts them into a hex array
 and saves it in `esp_duck/webfiles.h`.  
 Now you just need to [flash](#flash-software) the ESP8266 again.  
+
+
+### Change Keyboard Identifier
+
+The default VendorID/ProductID is Expressif Systems. 
+To emulate a different brand of keyboard, modify the build parameters in `platform.ini`
+
+For example:  
+
+To emulate an Apple Keyboard
+
+```bash
+    -D USB_VID=0x05ac
+    -D USB_PID=0x0267
+    -D USB_MANUFACTURER='"Apple Inc."'
+```
+To emulate an IBM Keyboard
+```bash
+    -D USB_VID=0x04b3
+    -D USB_PID=0x4604
+    -D USB_MANUFACTURER='"IBM Corp."'
+```
+
+Additional VendorID/ProductIDs available on [devicehunt.com](https://devicehunt.com/view/type/usb/vendor/046D)
 
 ### Translate Keyboard Layout
 
