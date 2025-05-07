@@ -19,37 +19,38 @@
   	<body>
         <nav>
             <ul class="menu">
-                <li><a href="index.html">WiFi Duck</a></li>
-                <li><a href="settings.html">Settings</a></li>
-                <li><a href="terminal.html">Terminal</a></li>
-                <li><a href="credits.html">About</a></li>
+                <li><a href="index.html"><img src="wifi.svg" width="20" height="20" class="container"><span> WiFi Duck</span></a></li>
+                <li><a href="settings.html" class="menuactive"><img src="settings.svg" width="20" height="20" class="container"> Settings</a></li>
+                <li><a href="terminal.html"><img src="terminal.svg" width="20" height="20" class="container"><span> Terminal</span></a></li>
+                <li><a href="docs.html"><img src="book.svg" width="20" height="20" class="container"><span> Docs</span></a></li>
+                <li><a href="credits.html"><img src="info.svg" width="20" height="20" class="container"><span> About</span></a></li>
             </ul>
         </nav>
 		<div id="status"></div>
 		<main>
 			<section>
-				<h1>WiFi</h1>
+				<h1>Wi-Fi</h1>
 				<p>Restart the device to apply new settings.</p>
 				<table>
 				<tr>
 					<td>SSID:</td>
 					<td id="ssid"></td>
-					<td><button class="primary" id="edit_ssid">edit</button></td>
+					<td><button class="primary" id="edit_ssid" style="float: right">Edit</button></td>
 				</tr>
 				<tr>
 					<td>Password:</td>
 					<td id="password"></td>
-					<td><button class="primary" id="edit_password">edit</button></td>
+					<td><button class="primary" id="edit_password" style="float: right">Edit</button></td>
 				</tr>
 				<tr>
 					<td>Channel:</td>
 					<td id="channel"></td>
-					<td><button class="primary" id="edit_channel">edit</button></td>
+					<td><button class="primary" id="edit_channel" style="float: right">Edit</button></td>
 				</tr>
 				<tr>
 					<td>Autorun Script:</td>
 					<td id="autorun"></td>
-					<td><button class="warn" id="disable_autorun">disable</button></td>
+					<td><button class="warn" id="disable_autorun" style="float: right">Disable</button></td>
 				</tr>
 				</table>
 				<button class="danger" id="reset">Reset settings</button>
@@ -64,7 +65,7 @@
 
 				<form method='POST' action='/update' enctype='multipart/form-data'>
 				<input type='file' name='update'>
-				<input type='submit' class="warn" value='Upload'>
+				<input type='submit' class="primaryhighlight" value='Upload'>
 				</form>
 			</section>
 			<footer>

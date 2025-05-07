@@ -5,10 +5,10 @@
 /* Global */
 
 body {
-	background: #36393e;
-  margin: 0;
-  color: #bfbfbf;
-	font-family: sans-serif;
+	background: #202124;
+ 	margin: 0;
+  	color: #bfbfbf;
+  	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 main {
@@ -18,7 +18,12 @@ main {
 }
 
 section {
-	margin-top: 50px;
+	background: #292A2D;
+	margin-top: 20px;
+	padding: 30px;
+	padding-top: 10px;
+	border-radius: 30px;
+	/* border: grey solid 2px */
 }
 
 footer {
@@ -29,37 +34,21 @@ footer {
 }
 
 h1 {
-	font-size: 1.4rem;
+	font-size: 1.7rem;
 	margin-top: 1rem;
-	background:
-	#2f3136;
-	padding: 10px;
-	border-radius: 4px;
-	border-left: solid #20c20e 5px;
-	font-weight: 100;
-	letter-spacing: 5px;
+	font-weight: 500;
 }
 
 h2 {
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	margin-top: 1rem;
-	background: #2f3136;
-	padding: 10px;
-	border-radius: 4px;
-	border-left: solid #20c20e 5px;
-	font-weight: 100;
-	letter-spacing: 5px;
+	font-weight: bold;
 }
 
 h3 {
-	font-size: 1rem;
+	font-size: 1.2rem;
 	margin-top: 1rem;
-	background: #2f3136;
-	padding: 10px;
-	border-radius: 4px;
-	border-left: solid #20c20e 5px;
-	font-weight: 100;
-	letter-spacing: 5px;
+	font-weight: bold;
 }
 
 label {
@@ -74,7 +63,6 @@ p {
 nav {
 	display: block;
 	background: #2f3136;
-	font-weight: bold;
 }
   
 nav a {
@@ -84,12 +72,11 @@ nav a {
 .menu {
 	width: 60vw;
 	list-style-type: none;
-	margin: 0;
 	padding: 0;
 	margin: 0 auto;
 	display: flex;
-	flex-direction: row;
-	display:block;
+	align-items: center;
+	justify-content: center;
 }
 
 .menu li {
@@ -98,16 +85,26 @@ nav a {
 }
 
 .menu li:last-child {
-	float: right;
+	float: none;
 }
 
 .menu a {
-	padding: .75em;
-	border-radius: 4px;
+	display: block;
+	padding: 10px 20px;
+	border-radius: 10rem;
+	margin-right: 0px;
 }
 
 .menu a:hover {
 	background: #42444a;
+}
+
+.menuactive {
+	background: #42444a;
+}
+
+.container {
+	vertical-align: -3.8px;
 }
 
 code {
@@ -121,7 +118,7 @@ code {
 
 .terminal {
 	max-height: 100vh;
-	background:#2f3136;
+	background:#0C0C0C;
 	height: 400px;
 	border-radius: 4px;
 	overflow-y: scroll;
@@ -133,11 +130,13 @@ code {
 }
 
 .warn {
-	color: #ffc107;
+	color: #f7d05b;
+	border-color: #8d7801;
 }
 
 .danger {
-	color: #F04747;
+	color: #ec7a8b;
+	border-color: #e6262a;
 }
 
 .success {
@@ -145,7 +144,17 @@ code {
 }
 
 .primary {
-	color: #0092db;
+	color: #9ccdf9;
+	border-color: #3f6abd;
+}
+
+.primaryhighlight {
+	color: #202124;
+	background-color: #7ebbf0;
+}
+.primaryhighlight:hover {
+	background: #aed5f7;
+	cursor: pointer;
 }
 
 .select {
@@ -290,13 +299,12 @@ hr {
 }
 
 a {
-	color: #1ca8eb;
+	color: #1caaeb;
   	text-decoration: none;
 }
 
 a:hover {
 	color: #fff;
-	text-decoration: underline dotted;
 }
 
 /* Meter */
@@ -417,6 +425,12 @@ th, td {
 	#ducky-functions-table td:nth-of-type(3):before {
 		content: "Description";
 	}
+	.menu a {
+		padding: 10px 15px;
+	}
+	.menu a span {
+		display: none;
+	}
 }
 
 /* Inputs and buttons */
@@ -451,16 +465,15 @@ input[type="text"]:hover {
 
 input, button {
 	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
-	background: #2f3136;
-	letter-spacing: .1rem;
-	text-transform: uppercase;
+	border: 1px solid;
+	border-radius: 10rem;
+	background: #292A2D;
 	margin: 2px 0;
+	font-weight: 500;
 }
 
 input:hover, button:hover {
-	background: #42444a;
+	background: #313236;
 	cursor: pointer;
 }
 

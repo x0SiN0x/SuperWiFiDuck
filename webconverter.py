@@ -1,4 +1,7 @@
 """
+   This script converts web files into C arrays and generates a header file
+   for use in ESP32-based devices, particularly for hosting a web server.
+
    This software is licensed under the MIT License. See the license file for details.
    Source: https://github.com/spacehuhntech/WiFiDuck
 """
@@ -8,9 +11,18 @@ import binascii
 import gzip
 
 def get_file_content(path):
-    file = open(path,"r")
+    """
+    Reads the content of a file, compresses it using gzip, and returns the compressed content.
+
+    Args:
+    - path (str): Path to the file.
+
+    Returns:
+    - bytes: Compressed content of the file.
+    """
+    file = open(path, "r")
     content = file.read().encode("utf-8")
-    file.close();
+    file.close()
 
     gzip_content = gzip.compress(content)
 
@@ -19,9 +31,27 @@ def get_file_content(path):
     return gzip_content
 
 def get_varname(filename):
-    return filename.replace(".","_").lower()
+    """
+    Generates a variable name based on the filename.
+
+    Args:
+    - filename (str): Name of the file.
+
+    Returns:
+    - str: Variable name derived from the filename.
+    """
+    return filename.replace(".", "_").lower()
 
 def get_file_type(filename):
+    """
+    Determines the content type of a file based on its extension.
+
+    Args:
+    - filename (str): Name of the file.
+
+    Returns:
+    - str: MIME type corresponding to the file extension.
+    """
     file_ending = filename.split('.')[1]
     if file_ending == "js":
         return "application/javascript"
@@ -29,16 +59,37 @@ def get_file_type(filename):
         return "text/css"
     elif file_ending == "html":
         return "text/html"
+    elif file_ending == "svg":
+        return "image/svg+xml"
     else:
         return "text/plain"
 
 def get_response_code(filename):
+    """
+    Determines the HTTP response code based on the filename.
+
+    Args:
+    - filename (str): Name of the file.
+
+    Returns:
+    - int: HTTP response code.
+    """
     if filename == "error404.html":
         return 404
     else:
         return 200
 
 def build_hex_string(varname, content):
+    """
+    Converts file content into a hexadecimal string representation.
+
+    Args:
+    - varname (str): Variable name.
+    - content (bytes): Content of the file.
+
+    Returns:
+    - str: Hexadecimal string representation of the content.
+    """
     hexstr = f"const uint8_t {varname}[] PROGMEM = {{ "
 
     for c in content:
@@ -50,6 +101,13 @@ def build_hex_string(varname, content):
     return hexstr
 
 def write_server_callback(filename, output):
+    """
+    Writes server callback functions for handling HTTP requests.
+
+    Args:
+    - filename (str): Name of the file.
+    - output (file object): Output file object to write to.
+    """
     varname = get_varname(filename)
     filetype = get_file_type(filename)
     response_code = get_response_code(filename)
@@ -59,6 +117,13 @@ def write_server_callback(filename, output):
     output.write(f"\\\n}});")
 
 def write_hex_array(filename, output):
+    """
+    Writes C arrays containing the hexadecimal representation of file content.
+
+    Args:
+    - filename (str): Name of the file.
+    - output (file object): Output file object to write to.
+    """
     print(f"Converting {filename}...", end="")
 
     path = f"web/{filename}"
@@ -72,17 +137,36 @@ def write_hex_array(filename, output):
     print("OK")
 
 def write_callbacks(files, output):
+    """
+    Writes server callback functions for each file.
+
+    Args:
+    - files (list of str): List of filenames.
+    - output (file object): Output file object to write to.
+    """
     for filename in files:
-        write_server_callback(filename, output);
+        write_server_callback(filename, output)
 
 def write_arrays(files, output):
+    """
+    Writes C arrays for each file.
+
+    Args:
+    - files (list of str): List of filenames.
+    - output (file object): Output file object to write to.
+    """
     for filename in files:
         write_hex_array(filename, output)
 
 def main():
-    web_files = os.listdir("web/")
+    """
+    Main function to execute the script.
+    """
+    #web_files = os.listdir("web/")
+    web_files = [f for f in os.listdir("web/") if not f.startswith(".")]
 
-    outputfile = open("esp_duck/webfiles.h", "w+")
+
+    outputfile = open("src/webfiles.h", "w+")
     outputfile.write("#pragma once\n\n")
 
     outputfile.write(f"#define WEBSERVER_CALLBACK ")
@@ -95,5 +179,5 @@ def main():
 
     outputfile.close()
 
-if __name__== "__main__":
-  main()
+if __name__ == "__main__":
+    main()
