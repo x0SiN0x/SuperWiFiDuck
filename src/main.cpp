@@ -8,8 +8,10 @@
 #include "spiffs.h"
 #include "settings.h"
 #include "cli.h"
+#include "USBHIDKeyboard.h"
 #include "USB.h"
 
+USBHIDKeyboard Keyboard;
 
 void setup() {
     debug_init();
