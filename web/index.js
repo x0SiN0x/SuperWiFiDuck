@@ -121,8 +121,8 @@ function update_file_list() {
           tableHTML += "<td>" + fileName + "</td>\n";
           tableHTML += "<td>" + fileSize + "</td>\n";
           tableHTML += "<td>\n";
-          tableHTML += "<button class=\"primary\" onclick=\"read('" + fileName + "')\">edit</button>\n";
-          tableHTML += "<button class=\"warn\" onclick=\"run('" + fileName + "')\">run</button>\n";
+          tableHTML += "<button class=\"primary\" onclick=\"read('" + fileName + "')\">Edit</button>\n";
+          tableHTML += "<button class=\"primaryhighlight\" onclick=\"run('" + fileName + "')\">Run</button>\n";
           tableHTML += "</tr>\n";
         }
       }
