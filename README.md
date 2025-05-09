@@ -6,11 +6,9 @@
 
 This project upgrades from WiFi Duck and utilizes the native USB function of ESP32 S2/3 chip - specifically for a ESP32-S3 SuperMini. As a result, you can run WiFi Duck with a default module below 10$, and no special hardware work is required.
 
-ESP32 S2/3 can emulate multiple USB devices at the same time. So I want to add USB mouse and USB disk function in the future. But it depends on how much time/money I have.
+ESP32 S2/3 can emulate multiple USB devices at the same time.
 
-Please help me to build more projects! [paypal](https://www.paypal.com/donate/?business=UZAK3WFV233ML&no_recurring=0&item_name=Help+me+build+more+project%21&currency_code=USD)
-
-Please read the install and flash parts below. They are different from the original project. 
+Please read the install and flash parts below. They are different from the original project.
 
 Want to learn more about BadUSBs? Check out WIFIDuck's online course: [learnbadusb.com](https://learnbadusb.com) 
 
@@ -86,10 +84,11 @@ If you have further questions, check out the [issue section](https://github.com/
 
 1. Install PlatformIO
 2. modify platformio.ini if needed
-3. `pio run -e esp32-s3-devkitc-1 -t upload` for esp32s3 ; 
+3. `pio run -e esp32-s3-SuperMini -t upload` for esp32-s3-supermini as picutured above ;
+   `pio run -e esp32-s3-devkitc-1 -t upload` for esp32s3 ; 
    `pio run -e esp32-s2-kaluga-1 -t upload` for esp32s2
 
-4. see Usage part   
+5. see Usage part   
 
 ## Scripting
 
