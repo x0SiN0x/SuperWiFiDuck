@@ -1,10 +1,10 @@
 # Super WiFi Duck
 
 <p align="center">
-<img alt="WiFi Duck Logo" src="img/thumbnail.jpg" width="640">
+<img alt="WiFi Duck Logo" src="esp32_s3_supermini.jpg" width="640">
 </p>
 
-This project upgrades from WiFi Duck and utilizes the native USB function of ESP32 S2/3 chip. As a result, you can run WiFi Duck with a default module below 10$, and no special hardware work is required.
+This project upgrades from WiFi Duck and utilizes the native USB function of ESP32 S2/3 chip - specifically for a ESP32-S3 SuperMini. As a result, you can run WiFi Duck with a default module below 10$, and no special hardware work is required.
 
 ESP32 S2/3 can emulate multiple USB devices at the same time. So I want to add USB mouse and USB disk function in the future. But it depends on how much time/money I have.
 
